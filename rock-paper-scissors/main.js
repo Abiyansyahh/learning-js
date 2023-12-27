@@ -1,26 +1,29 @@
 function computerSelect() {
     let select = ["batu", "gunting", "kertas"];
-    let index = Math.floor(math.random() * select.length);
+    let index = Math.floor(Math.random() * select.length);
     return select[index];
 }
 
-function winner(param1,param2){
-    if (param1 === param2){
+function winner(userSelect,computerSelect){
+    if (userSelect === computerSelect){
         return Seri;
     } else if (
-        (param1 === "gunting" && param2 === "batu") ||
-        (param1 === "kertas" && param2 === "gunting") ||
-        (param1 === "batu" && param2 === "kertas")
+        (userSelect === "gunting" && computerSelect === "batu") ||
+        (userSelect === "kertas" && computerSelect === "gunting") ||
+        (userSelect === "batu" && computerSelect === "kertas")
     ) {
-        return "pemain menang"
+        return "pemenang"
     } else {
-        return "computer menang"
+        return "computer"
     }
 }
 
-function play(main){
-    let user = main
-    let computer = computer()
-    let result = winner(user,computer)
-    console.log(`pemain memilih ${user}`)
+function play(userSelect){
+    const user = userSelect;
+    const computer = computerSelect();
+    const result = winner(user,computer);
+    console.log(`pemain memilih ${user}`);
+    console.log(`komputer memilih : ${computer}`);
+    console.log(`Hasilnya: ${result}`);
 }
+play("kertas");
